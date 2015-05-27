@@ -1,0 +1,81 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="css/custom.css"/>
+		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script src="timer.js"></script>
+		<script type="text/javascript" src="js/materialize.min.js"></script>
+	</head>
+
+	<nav>
+    <div class="nav-wrapper blue-grey darken-3">
+    	<div class="container">
+      <a href="#">Tick Tick Boom</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/bomb"><i class="mdi-navigation-refresh"></i></a></li>
+      </ul>
+      </div>
+    </div>
+  </nav>
+  </br>
+
+	<body>
+		<div class="container">
+
+			<div class="card red accent-2">
+          <img src="images/bomb.png"></img>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">Bomb is <%= session[:bomb].active ? "Active!" : "Inactive" %><i class="mdi-navigation-more-vert right"></i></span>
+        </div>
+        <div class="card-reveal blue-grey lighten-5">
+
+          <span class="card-title grey-text text-darken-4">Bomb is <%= session[:bomb].active ? "Active!" : "Inactive" %><i class="mdi-navigation-close right"></i></span></br>
+          <% if !session[:bomb].active %>
+					  <% if session[:bomb].active_code == "1234" %>
+						  
+						  <div class="row">
+						  	<div class="col l5">
+						  	<h6>Set Activation Code</h6>
+					      <form action="/bomb_active_code" method="post">
+					        <div class="input-field" type="text" name="active_code">
+					      	  <input type="text" name="active_code">
+					        </div>
+					        <input type="submit" value="Set Active Code">
+					      </form>
+					      </div>
+					  <% end %>
+					  
+					  <% if session[:bomb].deactive_code == "0000" %>
+					    <div class="col l5 offset-l1">
+					    <h6>Set Deactivation Code</h6>
+					    <form action="/bomb_deactive_code" method="post">
+					      <input type="text" name="deactive_code">
+					      <input type="submit" value="Set Deactive Code">
+					    </form>
+					    </div> 
+					  </div> 
+					  <% end %>
+
+					  <h6>Activation</h6>
+					  <form action="/bomb_activate" method="post">
+					    <input type="text" name="activation_code">
+					    <input type="submit" value="Activate">
+					  </form>
+					<% else %>
+						<div class="countdown_message">60 seconds</div>
+						<button class="activate">WARNING: START</button></br>
+
+					  <h6>Deactivate</h6>
+					  <form action="/bomb_deactivate" method="post">
+					    <input type="text" name="deactivation">
+					    <input type="submit" value="Deactivate">
+					  </form>
+					<% end %>
+        </div>
+      </div>
+	
+		</div>
+	</body>
+
+</html>
+

@@ -29,6 +29,7 @@ class AbSplitData
 
   def chi_squared_test
     combined_data = {}
+    #inject
     ab_data.each do |c|
       combined_data[c.key] = c.conversions[c.key]
     end
@@ -60,14 +61,14 @@ class JsonParser
   end
 
   def create_cohorts
-    conversions = cohort_conversions
-    conversions.each do |k, v|
-      cohorts << Cohort.new({ k => v }, k)
+    cohort_conversions.each do |cohort, samples|
+      cohorts << Cohort.new({ cohort => samples }, cohort)
     end
   end
 
   def cohort_conversions
     conversions = {}
+    #inject
     @data.each do |d|
       unless conversions.key?(d["cohort"])
         conversions[d["cohort"]] = { yes: 0, no: 0 }

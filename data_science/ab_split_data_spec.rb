@@ -1,7 +1,8 @@
 require './ab_split_data'
 
 describe AbSplitData do
-  before(:each) do
+    # let
+    before(:each) do
     @j = JsonParser.new
     @j.read_json_data("ab_split_test_data.json")
     @j.create_cohorts
