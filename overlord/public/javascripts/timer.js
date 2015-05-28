@@ -12,10 +12,12 @@ $.fn.countdown = function (callback, duration, message) {
 
 };
 
-$(document).on('click','.activate', function() {
-    $(".countdown").countdown(redirect, 60, " seconds");
+$(document).on('click','#activate', function() {
+    $(".countdown").countdown(redirect, 20, " seconds");
 });
 
 function redirect () {
     this.html("Boom");
+    $.get("/explode");
+    window.location.replace("/explode");
 }

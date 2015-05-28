@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="css/custom.css"/>
+		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script src="javascripts/timer.js"></script>
+		<script type="text/javascript" src="javascripts/materialize.min.js"></script>
+	</head>
+
+	<nav>
+    <div class="nav-wrapper blue-grey darken-3">
+    	<div class="container">
+    	<ul class="left">
+        <li><a href="#">Tick Tick Boom</a></li>
+      	<li><h5>Wrong Deactivation Attempts: <%= session[:bomb].wrong_codes %></h5></li>
+      </ul>
+      <ul class="right">
+        <li><a href="/bomb"><i class="mdi-navigation-refresh"></i></a></li>
+      </ul>
+      </div>
+    </div>
+  </nav>
+  </br>
+  <h1 align="center"> BOOM </h1>
+</html>
