@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150601163131) do
+ActiveRecord::Schema.define(version: 20150601190104) do
 
   create_table "answers", force: :cascade do |t|
     t.integer  "answer_id"
@@ -25,6 +25,21 @@ ActiveRecord::Schema.define(version: 20150601163131) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.text     "tags"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.integer  "question_id"
+    t.integer  "accepted_answer_id"
+    t.text     "body"
+    t.date     "creation_date"
+    t.string   "tags"
+    t.text     "title"
+    t.integer  "up_vote_count"
+    t.integer  "answer_count"
+    t.boolean  "is_answered"
+    t.text     "link"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
 end
