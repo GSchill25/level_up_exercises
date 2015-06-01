@@ -20,7 +20,7 @@ class StackOverflow
 		@answers["items"].each do |a|
 			question = Question.where("question_id = ?", a["question_id"])[0]
 			if chance_to_improve(a, question)
-				Answer.create(answer_id: a["answer_id"], question_id: question.id, is_accepted: a["is_accepted"], up_vote_count: a["up_vote_count"], creation_date: a["creation_date"], link: a["link"], last_edit_date: a["last_edit_date"], body: a["body"])
+				Answer.create(answer_id: a["answer_id"], question_id: question.id, is_accepted: a["is_accepted"], up_vote_count: a["up_vote_count"], link: a["link"], body: a["body"])
 			end
 		end
 	end
@@ -35,7 +35,7 @@ class StackOverflow
 			if accepted_answer(q)
 			  tags = q["tags"].join(",")
 			  @question_ids += "#{q['question_id']};"
-			  Question.create(accepted_answer_id: q["accepted_answer_id"], question_id: q["question_id"], up_vote_count: q["up_vote_count"], creation_date: q["creation_date"], link: q["link"], body: q["body"], tags: tags, title: q["title"], is_answered: q["is_answered"], answer_count: q["answer_count"])
+			  Question.create(accepted_answer_id: q["accepted_answer_id"], question_id: q["question_id"], up_vote_count: q["up_vote_count"], link: q["link"], body: q["body"], tags: tags, title: q["title"], is_answered: q["is_answered"], answer_count: q["answer_count"])
 			end
 		end
 	end
