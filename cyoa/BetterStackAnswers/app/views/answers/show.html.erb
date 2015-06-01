@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Answer:</strong>
+  <%= @answer.answer_id %>
+</p>
+
+<p>
+  <strong>Question:</strong>
+  <%= @answer.question_id %>
+</p>
+
+<p>
+  <strong>Is accepted:</strong>
+  <%= @answer.is_accepted %>
+</p>
+
+<p>
+  <strong>Up vote count:</strong>
+  <%= @answer.up_vote_count %>
+</p>
+
+<p>
+  <strong>Creation date:</strong>
+  <%= @answer.creation_date %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @answer.link %>
+</p>
+
+<p>
+  <strong>Last edit date:</strong>
+  <%= @answer.last_edit_date %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @answer.body %>
+</p>
+
+<%= link_to 'Edit', edit_answer_path(@answer) %> |
+<%= link_to 'Back', answers_path %>
