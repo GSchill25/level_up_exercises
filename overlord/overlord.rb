@@ -41,6 +41,11 @@ class BombApp < Sinatra::Base
     redirect '/bomb'
   end
 
+  get '/reset' do
+    bomb.reset
+    redirect '/bomb'
+  end
+
   get '/explode' do
     bomb.explode
     session[:bomb] = bomb

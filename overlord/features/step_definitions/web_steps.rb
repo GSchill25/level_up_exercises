@@ -25,6 +25,10 @@ Given(/^I fill in "([^"]*)" for (.+)$/) do |code, field|
   fill_in field, :with => code
 end
 
+Given /^I wait for (\d+) seconds?$/ do |n|
+  sleep(n.to_i)
+end
+
 Given /^(?:|I )am on (.+)$/ do |page_name|
   visit path_to(page_name)
 end

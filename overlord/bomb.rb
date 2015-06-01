@@ -37,4 +37,12 @@ class Bomb
   def explode
     @exploded = true
   end
+
+  def reset
+    @active = false
+    @active_code = "1234"
+    @deactive_code = "0000"
+    @exploded = false
+    @wrong_codes = 0
+  end
 end
