@@ -5,6 +5,11 @@ class AnswersController < ApplicationController
   # GET /answers.json
   def index
     @answers = Answer.all
+    if @answers.empty?
+      request = StackOverflow.new
+      request.stack_answers
+      request.create_from_json
+    end
   end
 
   # GET /answers/1
