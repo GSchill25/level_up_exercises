@@ -27,7 +27,7 @@ class StackOverflow
 
 	def stack_questions
 		time = 1.week.ago.to_time.to_i
-		@questions = HTTParty.get("https://api.stackexchange.com/2.2/questions?pagesize=100&todate=#{time}&order=desc&sort=activity&tagged=ruby&site=stackoverflow&filter=!*e9ibzBtKuuwgwd7CXx(XaTsPIb2n9_0qHdVm")
+		@questions = HTTParty.get("https://api.stackexchange.com/2.2/questions?pagesize=100&todate=#{time}&order=desc&sort=activity&tagged=ruby&site=stackoverflow&filter=!BL6SJ7EwsWfFXwoLNU7IsOZ938AjAp")
 	end
 
 	def create_questions_from_json

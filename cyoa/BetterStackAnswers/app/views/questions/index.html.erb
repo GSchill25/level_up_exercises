@@ -24,7 +24,7 @@
       <tr>
         <td><%= question.question_id %></td>
         <td><%= question.accepted_answer_id %></td>
-        <td><%= question.body %></td>
+        <td><%= question.body.nil? ? question.body : question.body.html_safe %></td>
         <td><%= question.creation_date %></td>
         <td><%= question.tags %></td>
         <td><%= question.title %></td>
