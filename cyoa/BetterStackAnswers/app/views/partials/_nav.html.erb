@@ -1,0 +1,18 @@
+<nav class = "navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Better Ruby Answers</a>
+		<ul class="nav navbar-nav">
+		  <li class="active"><a href="<%= questions_url %>">Home</a></li>
+		  <li><a href="<%= answers_url %>">Profile</a></li>
+		</ul>
+
+		<ul class="nav navbar-right">
+		  <% if logged_in? %>
+        <li><%= current_user.name %></li>
+        <li><%= link_to "Logout", logout_path %></li>
+      <% else %>
+        <li><%= link_to "Login With Stack Exchange", "/auth/stackexchange" %></li>
+      <% end %>
+    </ul>
+	</div>
+</nav>

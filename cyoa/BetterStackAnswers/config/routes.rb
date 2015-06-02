@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get   '/login', :to => 'sessions#new', :as => :login
   match '/auth/:provider/callback', :to => 'sessions#create', via: :get
-  get '/logout', :to => 'sessions#destroy'
+  get '/logout', :to => 'sessions#destroy', :as => :logout
 
   resources :questions
   resources :answers
