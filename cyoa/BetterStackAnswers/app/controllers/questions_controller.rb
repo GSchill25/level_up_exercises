@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
   def index
-    @questions = Question.all
+    @questions = Question.paginate(:page => params[:page], :per_page => 15)
     if @questions.empty?
       request = StackOverflow.new
       request.stack_questions
