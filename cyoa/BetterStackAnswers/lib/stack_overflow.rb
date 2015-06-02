@@ -13,11 +13,11 @@ class StackOverflow
 
 	def stack_answers
 		@answer_ids = @answer_ids[0..@answer_ids.length-2]
-		puts @answer_ids
 		@answers = HTTParty.get("https://api.stackexchange.com/2.2/answers/#{@answer_ids}?pagesize=100&order=desc&sort=activity&site=stackoverflow&filter=!)5lu_uJvJu*29XuDV862WD9kVmja")
 	end
 
 	def create_answers_from_json
+		raise "No answer ids" if @answer_ids.empty?
 		@answers["items"].each do |a|
 			question = Question.where("question_id = ?", a["question_id"])[0]
 			if chance_to_improve(a, question)
