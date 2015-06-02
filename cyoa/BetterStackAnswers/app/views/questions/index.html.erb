@@ -40,6 +40,7 @@
         <div class="well well-lg">
           <%= question.body.nil? ? question.body : question.body.html_safe %>
         </div>
+        <%= render :partial => "answer_body", locals: { question: question } %>
       </div>
     </div>
     </br></br>
