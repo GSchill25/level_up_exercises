@@ -1,7 +1,6 @@
 class Question < ActiveRecord::Base
-	attr_accessor :is_answered, :tags
-
 	has_one :answer
+	belongs_to :user
 
 	validates_presence_of :is_answered, :accepted_answer_id, :body, :title
 	validate :answered?

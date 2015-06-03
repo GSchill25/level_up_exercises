@@ -9,3 +9,11 @@
   body {
   	padding-top: 50px;
   }
+
+  nav.navbar.navbar-default.navbar-fixed-top{
+  	background-color: ;
+  }
+
+  .well {
+  	background-color: #e3f2fd;
+  }

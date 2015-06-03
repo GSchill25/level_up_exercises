@@ -11,8 +11,10 @@
             <h3><%= raw question.title %></h3>
           </div>
           <div class="col-lg-4">
-            <% question.tags.split(",").each do |tag| %>
-              <span class="label label-success"><%= tag %></span>
+            <% unless question.tags.nil? %>
+              <% question.tags.split(",").each do |tag| %>
+                <span class="label label-success"><%= tag %></span>
+              <% end %>
             <% end %>
           </div>
           <div class="col-lg-1">

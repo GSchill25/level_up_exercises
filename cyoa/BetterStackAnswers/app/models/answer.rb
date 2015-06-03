@@ -1,6 +1,4 @@
 class Answer < ActiveRecord::Base
-	attr_accessor :up_vote_count
-
   belongs_to :question
 
   validates_presence_of :question_id, :body
