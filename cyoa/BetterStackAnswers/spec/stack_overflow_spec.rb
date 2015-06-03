@@ -32,13 +32,4 @@ describe StackOverflow do
 		stack_overflow.stack_answers
 		expect { stack_overflow.create_answers_from_json }.to raise_error
 	end
-
-	it "should create one accepted answer for each question" do
-		expect(Answer.all.count).to eq(0)
-		stack_overflow.stack_questions
-		stack_overflow.create_questions_from_json
-		stack_overflow.stack_answers
-		stack_overflow.create_answers_from_json
-		expect(Answer.all.count).to eq(Question.all.count)
-	end
 end

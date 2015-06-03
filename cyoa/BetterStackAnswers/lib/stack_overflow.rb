@@ -20,9 +20,7 @@ class StackOverflow
 		raise "No answer ids" if @answer_ids.empty?
 		@answers["items"].each do |a|
 			question = Question.where("question_id = ?", a["question_id"])[0]
-			if chance_to_improve(a, question)
-				Answer.create(answer_id: a["answer_id"], question_id: question.id, is_accepted: a["is_accepted"], up_vote_count: a["up_vote_count"], link: a["link"], body: a["body"])
-			end
+			Answer.create(answer_id: a["answer_id"], question_id: question.id, is_accepted: a["is_accepted"], up_vote_count: a["up_vote_count"], link: a["link"], body: a["body"])
 		end
 	end
 
@@ -33,28 +31,9 @@ class StackOverflow
 
 	def create_questions_from_json
 		@questions["items"].each do |q|
-			if accepted_answer(q)
-		    tags = q["tags"].join(",") unless tags.nil? || tags.empty?
-        @answer_ids += "#{q['accepted_answer_id']};"
-        Question.create(accepted_answer_id: q["accepted_answer_id"], question_id: q["question_id"], up_vote_count: q["up_vote_count"], link: q["link"], body: q["body"], tags: tags, title: q["title"], is_answered: q["is_answered"], answer_count: q["answer_count"])
-      end
+		  tags = q["tags"].join(",") unless tags.nil? || tags.empty?
+      @answer_ids += "#{q['accepted_answer_id']};"
+      Question.create(accepted_answer_id: q["accepted_answer_id"], question_id: q["question_id"], up_vote_count: q["up_vote_count"], link: q["link"], body: q["body"], tags: tags, title: q["title"], is_answered: q["is_answered"], answer_count: q["answer_count"])
     end
 	end
-
-	def chance_to_improve(a, question)
-		if a["up_vote_count"] < 10
-			true
-		else
-			question.destroy
-			false
-		end
-	end
-
-	def accepted_answer(q)
-		if q["accepted_answer_id"].nil? || q["accepted_answer_id"] == ""
-			false
-		else
-			true
-    end
-  end
 end
