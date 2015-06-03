@@ -34,11 +34,11 @@ class StackOverflow
 	def create_questions_from_json
 		@questions["items"].each do |q|
 			if accepted_answer(q)
-			  tags = q["tags"].join(",")
-			  @answer_ids += "#{q['accepted_answer_id']};"
-			  Question.create(accepted_answer_id: q["accepted_answer_id"], question_id: q["question_id"], up_vote_count: q["up_vote_count"], link: q["link"], body: q["body"], tags: tags, title: q["title"], is_answered: q["is_answered"], answer_count: q["answer_count"])
-			end
-		end
+		    tags = q["tags"].join(",") unless tags.nil? || tags.empty?
+        @answer_ids += "#{q['accepted_answer_id']};"
+        Question.create(accepted_answer_id: q["accepted_answer_id"], question_id: q["question_id"], up_vote_count: q["up_vote_count"], link: q["link"], body: q["body"], tags: tags, title: q["title"], is_answered: q["is_answered"], answer_count: q["answer_count"])
+      end
+    end
 	end
 
 	def chance_to_improve(a, question)
@@ -51,6 +51,10 @@ class StackOverflow
 	end
 
 	def accepted_answer(q)
-		q["accepted_answer_id"].nil? ? false : true
-	end
+		if q["accepted_answer_id"].nil? || q["accepted_answer_id"] == ""
+			false
+		else
+			true
+    end
+  end
 end
