@@ -5,8 +5,8 @@ RSpec.describe User, type: :model do
   	expect(FactoryGirl.build(:user)).to be_valid
   end
 
-  it "should require users to have a username" do
-  	expect(FactoryGirl.build(:user, username: "")).not_to be_valid
+  it "should require users to have a name" do
+  	expect(FactoryGirl.build(:user, name: "")).not_to be_valid
   end
 
   it "should require users to have a uid" do
