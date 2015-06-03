@@ -1,5 +1,20 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "should have a valid factory" do
+  	expect(FactoryGirl.build(:user)).to be_valid
+  end
+
+  it "should require users to have a username" do
+  	expect(FactoryGirl.build(:user, username: "")).not_to be_valid
+  end
+
+  it "should require users to have a uid" do
+  	expect(FactoryGirl.build(:user, uid: "")).not_to be_valid
+  end
+
+  it "should require users to have a provider" do
+  	expect(FactoryGirl.build(:user, provider: "")).not_to be_valid
+  end
+  
 end

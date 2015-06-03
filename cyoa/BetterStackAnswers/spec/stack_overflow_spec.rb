@@ -1,4 +1,4 @@
-require '../lib/stack_overflow.rb'
+require 'stack_overflow'
 require_relative 'rails_helper'
 
 describe StackOverflow do
