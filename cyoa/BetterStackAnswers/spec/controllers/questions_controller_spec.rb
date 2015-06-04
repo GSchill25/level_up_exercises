@@ -24,11 +24,17 @@ RSpec.describe QuestionsController, type: :controller do
   # Question. As you add validations to Question, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    { question_id: 1, accepted_answer_id: 1,
+      body: "<p>What is ruby?</p>", tags: "ruby,rails",
+      title: "Ruby", up_vote_count: 3, answer_count: 2,
+      is_answered: true, link: "www.stackoverflow.com" }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    { question_id: 1, accepted_answer_id: 1,
+      body: "", tags: "ruby,rails",
+      title: "Ruby", up_vote_count: 3, answer_count: 2,
+      is_answered: true, link: "www.stackoverflow.com" }
   }
 
   # This should return the minimal set of values that should be in the session
@@ -103,14 +109,17 @@ RSpec.describe QuestionsController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { question_id: 1, accepted_answer_id: 1,
+          body: "<p>What is rails?</p>", tags: "ruby,rails",
+          title: "Rails", up_vote_count: 2, answer_count: 4,
+          is_answered: true, link: "www.stackoverflow.com" }
       }
 
       it "updates the requested question" do
         question = Question.create! valid_attributes
         put :update, {:id => question.to_param, :question => new_attributes}, valid_session
         question.reload
-        skip("Add assertions for updated state")
+        expect(question.title).to eq("Rails")
       end
 
       it "assigns the requested question as @question" do

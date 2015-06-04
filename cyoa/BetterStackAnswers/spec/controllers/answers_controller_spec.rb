@@ -24,13 +24,15 @@ RSpec.describe AnswersController, type: :controller do
   # Answer. As you add validations to Answer, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-   # FactoryGirl.build(:answer)
-   skip("skip")
+   { answer_id: 1, question_id: 1,
+     is_accepted: true, link: "www.stackoverflow.com",
+     body: "<p>Rails is 10 years old</p>", up_vote_count: 3 }
   }
 
   let(:invalid_attributes) {
-    # FactoryGirl.build(:answer, up_vote_count: 15)
-    skip("skip")
+    { answer_id: 1, question_id: nil,
+     is_accepted: true, link: "www.stackoverflow.com",
+     body: "<p>Rails is 10 years old</p>", up_vote_count: 3 }
   }
 
   # This should return the minimal set of values that should be in the session
@@ -105,14 +107,16 @@ RSpec.describe AnswersController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { answer_id: 1, question_id: 1,
+          is_accepted: true, link: "www.rubyonrails.org",
+          body: "<p>Rails is 10 years old</p>", up_vote_count: 3 }
       }
 
       it "updates the requested answer" do
         answer = Answer.create! valid_attributes
         put :update, {:id => answer.to_param, :answer => new_attributes}, valid_session
         answer.reload
-        skip("Add assertions for updated state")
+        expect(answer.link).to eq("www.rubyonrails.org")
       end
 
       it "assigns the requested answer as @answer" do
