@@ -1,7 +1,7 @@
 class Question < ActiveRecord::Base
 	include PgSearch
 	pg_search_scope :search_by_title, :against => :title
-	
+
 	has_one :answer
 	belongs_to :user
 
@@ -14,6 +14,14 @@ class Question < ActiveRecord::Base
 		unless tags.nil? || tags.empty?
 			return tags.split(",").include?('ruby')
 		end
+	end
+
+	def ruby_version_up_to_date?
+		Rails.application.config.ruby_version == ruby_version
+	end
+
+	def rails_version_up_to_date?
+		Rails.application.config.rails_version == rails_version
 	end
 
 end

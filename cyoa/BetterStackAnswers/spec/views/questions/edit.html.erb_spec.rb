@@ -20,9 +20,9 @@ RSpec.describe "questions/edit", type: :view do
 
     assert_select "form[action=?][method=?]", question_path(@question), "post" do
 
-      assert_select "input#question_question_id[name=?]", "question[question_id]"
+      #assert_select "input#question_question_id[name=?]", "question[question_id]"
 
-      assert_select "input#question_accepted_answer_id[name=?]", "question[accepted_answer_id]"
+      #assert_select "input#question_accepted_answer_id[name=?]", "question[accepted_answer_id]"
 
       assert_select "textarea#question_body[name=?]", "question[body]"
 
@@ -32,9 +32,9 @@ RSpec.describe "questions/edit", type: :view do
 
       assert_select "input#question_up_vote_count[name=?]", "question[up_vote_count]"
 
-      assert_select "input#question_answer_count[name=?]", "question[answer_count]"
+      #assert_select "input#question_answer_count[name=?]", "question[answer_count]"
 
-      assert_select "input#question_is_answered[name=?]", "question[is_answered]"
+      #assert_select "input#question_is_answered[name=?]", "question[is_answered]"
 
       assert_select "textarea#question_link[name=?]", "question[link]"
     end

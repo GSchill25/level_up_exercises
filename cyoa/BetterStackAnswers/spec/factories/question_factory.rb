@@ -9,5 +9,7 @@ FactoryGirl.define do
   	answer_count 2
   	is_answered true
   	link "www.stackoverflow.com"
+    ruby_version "2.0"
+    rails_version "4.2"
   end
 end
