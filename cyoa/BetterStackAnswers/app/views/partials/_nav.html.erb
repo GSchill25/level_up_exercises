@@ -3,18 +3,28 @@
     <a class="navbar-brand" href="#">Better Ruby Answers</a>
 		<ul class="nav navbar-nav">
 		  <li class="active"><a href="<%= questions_url %>">Home</a></li>
-		  <li><a href="<%= answers_url %>">Profile</a></li>
+      <% if current_user %>
+		    <li><a href="<%= user_path(current_user.id) %>">Profile</a></li>
+      <% end %>
     </ul>
 
-        <div class="navbar-form navbar-left">
-          <%= form_tag questions_path, :method => :get do %>
-              <%= text_field_tag :search, params[:search], :class => "form-control" %>
-              <%= submit_tag "Search", :name => nil, :class => "btn btn-default" %>
-          <% end %>
-        </div>
+    <div class="navbar-form navbar-left">
+      <%= form_tag questions_path, :method => :get do %>
+          <%= text_field_tag :search, params[:search], :class => "form-control" %>
+          <%= submit_tag "Search", :name => nil, :class => "btn btn-default" %>
+      <% end %>
+    </div>
+
+    <% if logged_in? && current_user.picture %>
+      <div class="nav navbar-right">
+        &nbsp;
+        <%= image_tag current_user.picture, size: "50x50" %>
+      </div>
+    <% end %>
 		
 		<ul class="nav navbar-right">
 		  <% if logged_in? %>
+
         <li><%= current_user.name %>&nbsp;<i class="fa fa-user"></i><br></li>
         <li><span><%= link_to "Logout", logout_path %>&nbsp;<i class="fa fa-sign-out"></span></i></li>
       <% else %>

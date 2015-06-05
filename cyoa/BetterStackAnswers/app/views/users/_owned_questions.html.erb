@@ -1,0 +1,21 @@
+<table class="table table-striped">
+  <thead>
+  	<tr>
+  	  <th>Ruby Version</th>
+  	  <th>Rails Version</th>
+  	  <th>Question</th>
+  	</tr>
+  </thead>
+  <tbody>
+  	<% @user.questions.each do |q| %>
+  	  <tr>
+  		  <td><%= q.ruby_version %></td>
+  		  <td><%= q.rails_version %></td>
+  		  <td><%= link_to q.title.html_safe, edit_question_path(q) %></td>
+  	  </tr>
+  	<% end %>
+  </tbody>
+<table>
+
+
+

@@ -23,3 +23,5 @@
 
   a.btn:visited { color: #fff; }
   a.btn-primary:visited { color: #fff; }
+
+  p#notice { display:none;}

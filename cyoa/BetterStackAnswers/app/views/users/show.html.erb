@@ -1,0 +1,19 @@
+<div class="row">
+	<div class="well well-lg col-lg-4">
+		<div class="col-lg-6">
+			<%= image_tag @user.picture %>
+		</div>
+		<div class="col-lg-6">
+			<h4><%= @user.name %></h4>
+			<ul>
+		    <li><%= "Questions: #{@user.questions.count}" %></li>
+		    <li><%= "Revisions: #{@user.revisions}" %></li>
+		  </ul>
+		</div>
+	</div>
+
+	<div class="panel panel-default col-lg-6 col-lg-offset-2">
+		<%= render :partial => "owned_questions", locals: { user: @user }%>
+  </div>
+</div>
+

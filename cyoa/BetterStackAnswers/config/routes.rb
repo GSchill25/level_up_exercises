@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
+  resources :users
+  resources :questions
+  resources :answers
+
   get   '/login', :to => 'sessions#new', :as => :login
   match '/auth/:provider/callback', :to => 'sessions#create', via: :get
   get '/logout', :to => 'sessions#destroy', :as => :logout
 
-  resources :questions
-  resources :answers
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
