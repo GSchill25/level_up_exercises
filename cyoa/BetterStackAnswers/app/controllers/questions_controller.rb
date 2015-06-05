@@ -12,6 +12,9 @@ class QuestionsController < ApplicationController
       request.stack_answers
       request.create_answers_from_json  
     end
+    if params[:search]
+      @questions = Question.search_by_title(params[:search]).paginate(:page => params[:page], :per_page => 15)
+    end
   end
 
   # GET /questions/1

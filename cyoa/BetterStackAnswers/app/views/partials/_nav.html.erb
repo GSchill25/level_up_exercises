@@ -4,8 +4,15 @@
 		<ul class="nav navbar-nav">
 		  <li class="active"><a href="<%= questions_url %>">Home</a></li>
 		  <li><a href="<%= answers_url %>">Profile</a></li>
-		</ul>
+    </ul>
 
+        <div class="navbar-form navbar-left">
+          <%= form_tag questions_path, :method => :get do %>
+              <%= text_field_tag :search, params[:search], :class => "form-control" %>
+              <%= submit_tag "Search", :name => nil, :class => "btn btn-default" %>
+          <% end %>
+        </div>
+		
 		<ul class="nav navbar-right">
 		  <% if logged_in? %>
         <li><%= current_user.name %>&nbsp;<i class="fa fa-user"></i><br></li>

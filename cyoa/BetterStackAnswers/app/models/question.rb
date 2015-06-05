@@ -1,4 +1,7 @@
 class Question < ActiveRecord::Base
+	include PgSearch
+	pg_search_scope :search_by_title, :against => :title
+	
 	has_one :answer
 	belongs_to :user
 
