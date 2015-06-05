@@ -8,10 +8,10 @@
 
 		<ul class="nav navbar-right">
 		  <% if logged_in? %>
-        <li><%= current_user.name %></li>
-        <li><%= link_to "Logout", logout_path %></li>
+        <li><%= current_user.name %>&nbsp;<i class="fa fa-user"></i><br></li>
+        <li><span><%= link_to "Logout", logout_path %>&nbsp;<i class="fa fa-sign-out"></span></i></li>
       <% else %>
-        <li><%= link_to "Login With Stack Exchange", "/auth/stackexchange" %></li>
+        <li><h5><span><%= link_to "Login With Stack Exchange", "/auth/stackexchange" %>&nbsp;<i class="fa fa-sign-in"></i></span></h5></li>
       <% end %>
     </ul>
 	</div>

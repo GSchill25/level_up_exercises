@@ -1,61 +1,66 @@
-<%= form_for(@question) do |f| %>
-  <% if @question.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
 
-      <ul>
-      <% @question.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+  <%= form_for(@question) do |f| %>
+    <% if @question.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
+
+        <ul>
+        <% @question.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+<div class="panel panel-info color"></br>
+  <div class="row">
+    <div class="form-group col-lg-3 col-lg-offset-1">
+      <%= f.label :tags %><br>
+      <%= f.text_field :tags %>
+    </div>
+    <div class="form-group col-lg-8">
+      <%= f.label :title %><br>
+      <%= f.text_area :title, :size => "60x1" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-lg-3 col-lg-offset-1">
+      <%= f.label :up_votes %><br>
+      <%= f.number_field :up_vote_count %>
+    </div>
+    <div class="form-group col-lg-8">
+      <%= f.label :link %><br>
+      <%= f.text_area :link, :size => "60x1" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-lg-2 col-lg-offset-1">
+      <%= f.label :user_id %>&nbsp;<i class="fa fa-user"></i><br>
+      <%= f.collection_select :user_id, User.all, :id, :name, include_blank: true %>
+    </div>
+  </div></br>
+
+  <div class="row">
+    <div class="form-group col-lg-11 col-lg-offset-1">
+      <%= f.label :question_body %><br>
+      <%= f.text_area :body, :size => "80x6" %>
+    </div>
+  </div>
+
+  <div class="row">
+      <%= f.fields_for :answer do |answer_form| %>
+        <div class="form-group col-lg-11 col-lg-offset-1">
+          <%= answer_form.label :answer_body %><br>
+          <%= answer_form.text_area :body, :size => "80x6" %>
+        </div>
       <% end %>
-      </ul>
+  </div>
+</div>
+
+<div class="row">
+    <div class="actions col-lg-2 col-lg-offset-1">
+      <%= f.submit %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :question_id %><br>
-    <%= f.number_field :question_id %>
-  </div>
-  <div class="field">
-    <%= f.label :accepted_answer_id %><br>
-    <%= f.number_field :accepted_answer_id %>
-  </div>
-  <div class="field">
-    <%= f.label :body %><br>
-    <%= f.text_area :body %>
-  </div>
-  <div class="field">
-    <%= f.label :creation_date %><br>
-    <%= f.date_select :creation_date %>
-  </div>
-  <div class="field">
-    <%= f.label :tags %><br>
-    <%= f.text_field :tags %>
-  </div>
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_area :title %>
-  </div>
-  <div class="field">
-    <%= f.label :up_vote_count %><br>
-    <%= f.number_field :up_vote_count %>
-  </div>
-  <div class="field">
-    <%= f.label :answer_count %><br>
-    <%= f.number_field :answer_count %>
-  </div>
-  <div class="field">
-    <%= f.label :is_answered %><br>
-    <%= f.check_box :is_answered %>
-  </div>
-  <div class="field">
-    <%= f.label :link %><br>
-    <%= f.text_area :link %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.collection_select :user_id, User.all, :id, :name, include_blank: true %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

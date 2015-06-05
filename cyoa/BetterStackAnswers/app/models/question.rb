@@ -2,6 +2,8 @@ class Question < ActiveRecord::Base
 	has_one :answer
 	belongs_to :user
 
+  accepts_nested_attributes_for :answer
+
 	validates_presence_of :accepted_answer_id, :body, :title
 	validate :ruby_question
 

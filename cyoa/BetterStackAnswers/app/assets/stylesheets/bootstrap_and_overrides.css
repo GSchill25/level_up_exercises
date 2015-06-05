@@ -16,3 +16,10 @@
   .well {
   	background-color: #e3f2fd;
   }
+
+  .panel.panel-info.color {
+    background-color: #e3f2fd;
+  }
+
+  a.btn:visited { color: #fff; }
+  a.btn-primary:visited { color: #fff; }

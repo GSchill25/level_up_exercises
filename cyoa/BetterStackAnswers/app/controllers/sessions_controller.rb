@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   	puts auth_hash
   	@user = User.find_or_create(auth_hash)
   	session[:user_id] = @user.id
-  	redirect_to questions_url
+  	redirect_to questions_url, notice: "Logged In"
   end
 
   def destroy

@@ -22,10 +22,12 @@ class QuestionsController < ApplicationController
   # GET /questions/new
   def new
     @question = Question.new
+    @question.build_answer
   end
 
   # GET /questions/1/edit
   def edit
+    @question.build_answer if @question.answer.nil?
   end
 
   # POST /questions
@@ -76,6 +78,6 @@ class QuestionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
-      params.require(:question).permit(:question_id, :accepted_answer_id, :body, :creation_date, :tags, :title, :up_vote_count, :answer_count, :is_answered, :link, :ruby_version, :rails_version, :version_updated, :user_id)
+      params.require(:question).permit(:question_id, :accepted_answer_id, :body, :creation_date, :tags, :title, :up_vote_count, :answer_count, :is_answered, :link, :ruby_version, :rails_version, :version_updated, :user_id, answer_attributes: [:id, :body])
     end
 end

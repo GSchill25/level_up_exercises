@@ -23,5 +23,7 @@ module BetterStackAnswers
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
     config.autoload_paths << Rails.root.join('lib')
+    config.ruby_version = "2.2.2"
+    config.rails_version = "4.2"
   end
 end
