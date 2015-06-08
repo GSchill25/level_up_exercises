@@ -5,6 +5,8 @@
 # files.
 
 require 'cucumber/rails'
+require 'capybara/cucumber'
+
 
 # Capybara defaults to CSS3 selectors rather than XPath.
 # If you'd prefer to use XPath, just uncomment this line and adjust any
@@ -50,6 +52,24 @@ end
 #     DatabaseCleaner.strategy = :transaction
 #   end
 #
+Before do
+  DatabaseCleaner.start
+end
+
+After do |scenario|
+  DatabaseCleaner.clean
+end
+
+# Register Chrome as the default driver
+Capybara.register_driver :chrome do |app|
+  Capybara::Selenium::Driver.new(app, :browser => :chrome)
+end
+
+Capybara.javascript_driver = :chrome
+
+#Set up a mock OmniAuth login
+OmniAuth.config.test_mode = true
+
 
 # Possible values are :truncation and :transaction
 # The :transaction strategy is faster, but might give you threading problems.

@@ -12,8 +12,12 @@
 		</div>
 	</div>
 
-	<div class="panel panel-default col-lg-6 col-lg-offset-2">
-		<%= render :partial => "owned_questions", locals: { user: @user }%>
-  </div>
+  <div class="col-lg-6 col-lg-offset-2">
+		<div class="panel panel-primary">
+			<div class="panel-heading">Questions to Monitor</div>
+			<div class="panel-body">
+			  <%= render :partial => "owned_questions", locals: { user: @user }%>
+			</div>
+	  </div>
+	</div>
 </div>
-

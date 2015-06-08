@@ -1,6 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Ruby Questions</h1>
+<h1 class="page-header">Ruby Questions</h1>
 
     <% @questions.each do |question| %>
     <div class="panel panel-primary">
@@ -40,7 +38,7 @@
           </div>
 
           <div class="col-lg-1">
-            <a role="button" class="btn btn-primary" href="<%= edit_question_path(question) %>"><i class="fa fa-pencil-square-o fa-2x"></i></a>
+            <a id="edit_question" role="button" class="btn btn-primary" href="<%= edit_question_path(question) %>"><i class="fa fa-pencil-square-o fa-2x"></i></a>
           </div>
         </div>
         <h3><%= raw question.title %></h3>

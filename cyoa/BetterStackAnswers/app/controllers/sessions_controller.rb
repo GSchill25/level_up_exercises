@@ -14,4 +14,8 @@ class SessionsController < ApplicationController
   	session[:user_id] = nil
     redirect_to questions_url, notice: "You have been logged out."
   end
+
+  def failure
+    redirect_to questions_url, notice: "Invalid Stack Exchange Account"
+  end
 end
