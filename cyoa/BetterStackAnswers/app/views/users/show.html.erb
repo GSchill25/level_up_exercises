@@ -5,19 +5,22 @@
 		</div>
 		<div class="col-lg-6">
 			<h4><%= @user.name %></h4>
-			<ul>
-		    <li><%= "Questions: #{@user.questions.count}" %></li>
-		    <li><%= "Revisions: #{@user.revisions}" %></li>
-		  </ul>
 		</div>
 	</div>
 
-  <div class="col-lg-6 col-lg-offset-2">
+  <div class="col-lg-7 col-lg-offset-1">
 		<div class="panel panel-primary">
 			<div class="panel-heading">Questions to Monitor</div>
 			<div class="panel-body">
 			  <%= render :partial => "owned_questions", locals: { user: @user }%>
+			  <div class="row">
+			  	<h4 id="graph_header"><b>Question Summary</b></h4>
+	        <%= pie_chart({ "Up to Date" => @user.questions.up_to_date.count, "Needs Updated" => @user.questions.outdated.count }) %>
+        </div>
 			</div>
 	  </div>
+
 	</div>
 </div>
+
+

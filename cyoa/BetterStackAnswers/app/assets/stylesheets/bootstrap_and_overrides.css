@@ -21,7 +21,18 @@
     background-color: #e3f2fd;
   }
 
-  a.btn:visited { color: #fff; }
-  a.btn-primary:visited { color: #fff; }
+  a.btn:visited { 
+    color: #fff; 
+  }
 
-  p#notice { display:none;}
+  a.btn-primary:visited { 
+    color: #fff; 
+  }
+
+  p#notice { 
+    display:none;
+  }
+
+  #graph_header { 
+    padding-left: 22%;
+  }

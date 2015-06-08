@@ -4,6 +4,7 @@
   	  <th>Ruby Version</th>
   	  <th>Rails Version</th>
   	  <th>Question</th>
+      <th>Version Updated</th>
   	</tr>
   </thead>
   <tbody>
@@ -12,10 +13,11 @@
   		  <td><%= q.ruby_version %></td>
   		  <td><%= q.rails_version %></td>
   		  <td><%= link_to q.title.html_safe, edit_question_path(q) %></td>
+        <td><% if q.version_updated %><i class="fa fa-check"></i><% end %>
   	  </tr>
   	<% end %>
   </tbody>
-<table></br>
+</table></br>
 
 
 

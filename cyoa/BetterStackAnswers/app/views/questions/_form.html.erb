@@ -39,6 +39,18 @@
       <%= f.label :user_id %>&nbsp;<i class="fa fa-user"></i><br>
       <%= f.collection_select :user_id, User.all, :id, :name, include_blank: true %>
     </div>
+    <div class="form-group col-lg-2 col-lg-offset-1">
+      <%= f.label :ruby_version %>&nbsp;<i class="fa fa-code-fork"></i><br>
+      <%= f.text_field :ruby_version %>
+    </div>
+    <div class="form-group col-lg-2">
+      <%= f.label :rails_version %>&nbsp;<i class="fa fa-code-fork"></i><br>
+      <%= f.text_field :rails_version %>
+    </div>
+    <div class="form-group col-lg-3">
+      <%= f.label :version_up_to_date %></br>
+      <%= f.check_box :version_updated %>
+    </div>
   </div></br>
 
   <div class="row">

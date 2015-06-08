@@ -10,6 +10,9 @@ class Question < ActiveRecord::Base
 	validates_presence_of :body, :title
 	validate :ruby_question
 
+	scope :outdated, -> { where(version_updated: false || nil) }
+	scope :up_to_date, -> { where(version_updated: true) }
+
 	def ruby_question
 		unless tags.nil? || tags.empty?
 			return tags.split(",").include?('ruby')
