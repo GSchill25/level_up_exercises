@@ -34,5 +34,18 @@ RSpec.describe Question, type: :model do
     question.rails_version = "3.8"
     expect(question.rails_version_up_to_date?).to eq(false)
   end
+
+  it "should scope questions with outdated versions" do
+    FactoryGirl.create(:question, version_updated: true)
+    FactoryGirl.create(:question, title: "new")
+    expect(Question.outdated.count).to eq(1)
+  end
+
+  it "should scope questions with up to date versions" do
+    FactoryGirl.create(:question, version_updated: true)
+    FactoryGirl.create(:question, title: "new", version_updated: true)
+    expect(Question.up_to_date.count).to eq(2)
+  end
+
   
 end

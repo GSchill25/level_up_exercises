@@ -30,9 +30,9 @@ RSpec.describe AnswersController, type: :controller do
   }
 
   let(:invalid_attributes) {
-    { answer_id: 1, question_id: nil,
+    { answer_id: 1, question_id: 1,
      is_accepted: true, link: "www.stackoverflow.com",
-     body: "<p>Rails is 10 years old</p>", up_vote_count: 3 }
+     body: "<p>Rails is 10 years old</p>", up_vote_count: "dog" }
   }
 
   # This should return the minimal set of values that should be in the session
