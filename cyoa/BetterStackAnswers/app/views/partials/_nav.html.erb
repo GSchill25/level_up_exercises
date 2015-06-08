@@ -6,6 +6,7 @@
       <li><a href="<%= new_question_path %>">New Q</a></li>
       <% if current_user %>
 		    <li><a href="<%= user_path(current_user.id) %>">Profile</a></li>
+        <li><a href="<%= stack_overflow_path %>">Add Q and As</a></li>
       <% end %>
     </ul>
 

@@ -6,11 +6,7 @@ class QuestionsController < ApplicationController
   def index
     @questions = Question.paginate(:page => params[:page], :per_page => 15)
     if @questions.empty?
-      request = StackOverflow.new
-      request.stack_questions
-      request.create_questions_from_json
-      request.stack_answers
-      request.create_answers_from_json  
+       Question.stack_overflow_questions_and_answers
     end
     if params[:search]
       @questions = Question.search_by_title(params[:search]).paginate(:page => params[:page], :per_page => 15)
@@ -20,6 +16,11 @@ class QuestionsController < ApplicationController
   # GET /questions/1
   # GET /questions/1.json
   def show
+  end
+
+  def questions_and_answers
+    Question.stack_overflow_questions_and_answers
+    redirect_to questions_url, notice: "Questions and Answers Added."
   end
 
   # GET /questions/new

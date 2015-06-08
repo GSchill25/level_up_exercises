@@ -24,4 +24,11 @@ class Question < ActiveRecord::Base
 		Rails.application.config.rails_version == rails_version
 	end
 
+	def self.stack_overflow_questions_and_answers
+		request = StackOverflow.new
+    request.stack_questions
+    request.create_questions_from_json
+    request.stack_answers
+    request.create_answers_from_json
+  end
 end
