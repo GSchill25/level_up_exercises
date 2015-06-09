@@ -39,6 +39,8 @@ gem 'pg_search'
 
 gem 'chartkick'
 
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -66,5 +68,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'capybara'
   gem 'selenium-webdriver'
+
+  gem 'simplecov', :require => false
 end
 

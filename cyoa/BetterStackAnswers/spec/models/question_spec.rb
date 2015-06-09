@@ -25,14 +25,16 @@ RSpec.describe Question, type: :model do
 
   it "should know if it has the current ruby version" do
     expect(question.ruby_version_up_to_date?).to eq(false)
-    question.ruby_version = "2.2.2"
+    GemVersion.current_ruby_version
+    question.ruby_version = GemVersion.ruby
     expect(question.ruby_version_up_to_date?).to eq(true)
   end
 
   it "should know if it has the current rails version" do
-    expect(question.rails_version_up_to_date?).to eq(true)
-    question.rails_version = "3.8"
     expect(question.rails_version_up_to_date?).to eq(false)
+    GemVersion.current_rails_version
+    question.rails_version = GemVersion.rails
+    expect(question.rails_version_up_to_date?).to eq(true)
   end
 
   it "should scope questions with outdated versions" do

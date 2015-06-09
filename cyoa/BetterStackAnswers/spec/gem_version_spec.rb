@@ -3,7 +3,7 @@ require_relative 'rails_helper'
 
 describe StackOverflow do
 
-  it "should have 2 class variables" do
+  it "should have 2 empty version variables" do
   	expect(GemVersion.ruby).to eq("")
   	expect(GemVersion.rails).to eq("")
   end
