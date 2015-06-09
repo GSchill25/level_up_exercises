@@ -1,54 +1,50 @@
-<p id="notice"><%= notice %></p>
+ <div class="panel panel-primary">
+    <div class="panel-body">
+        <div class="row">
+          <div class="col-lg-7">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Up Votes</th>
+                  <th>Take me There</th>
+                </tr>
+              </thead>
 
-<p>
-  <strong>Question:</strong>
-  <%= @question.question_id %>
-</p>
+              <tbody>
+                <tr class="">
+                  <td><h5><%= @question.up_vote_count %>&nbsp;<i class="fa fa-hand-o-up"></i></h5></td>
+                  <td><h5><%= link_to "StackOverflow", @question.link %>&nbsp;<i class="fa fa-share"></i></h5></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-<p>
-  <strong>Accepted answer:</strong>
-  <%= @question.accepted_answer_id %>
-</p>
+          <div class="col-lg-4">
+            <% unless @question.tags.nil? %>
+              <% @question.tags.split(",").each do |tag| %>
+                <span class="label label-success"><%= tag %></span>
+              <% end %>
+            <% end %></br></br>
+            <button class="btn-sm btn-info" type="button">
+              Ruby Version <span class="badge" id="ruby-version"><%= @question.ruby_version %></span>
+            </button>
+            <button class="btn-sm btn-info" type="button">
+              Rails Version <span class="badge" id="rails-version"><%= @question.rails_version %></span>
+            </button>
+          </div>
 
-<p>
-  <strong>Body:</strong>
-  <%= @question.body %>
-</p>
-
-<p>
-  <strong>Creation date:</strong>
-  <%= @question.creation_date %>
-</p>
-
-<p>
-  <strong>Tags:</strong>
-  <%= @question.tags %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @question.title %>
-</p>
-
-<p>
-  <strong>Up vote count:</strong>
-  <%= @question.up_vote_count %>
-</p>
-
-<p>
-  <strong>Answer count:</strong>
-  <%= @question.answer_count %>
-</p>
-
-<p>
-  <strong>Is answered:</strong>
-  <%= @question.is_answered %>
-</p>
-
-<p>
-  <strong>Link:</strong>
-  <%= @question.link %>
-</p>
+          <div class="col-lg-1">
+            <a id="edit_question" role="button" class="btn btn-primary" href="<%= edit_question_path(@question) %>"><i class="fa fa-pencil-square-o fa-2x"></i></a>
+          </div>
+        </div>
+        <h3><%= raw @question.title %></h3>
+        </br>
+        <div class="well well-lg">
+          <%= @question.body.nil? ? @question.body : @question.body.html_safe %>
+        </div>
+        <%= render :partial => "answer_body", locals: { question: @question } %>
+    </div>
+</div>
 
 <%= link_to 'Edit', edit_question_path(@question) %> |
 <%= link_to 'Back', questions_path %>

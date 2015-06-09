@@ -10,7 +10,7 @@ class Question < ActiveRecord::Base
 	validates_presence_of :body, :title
 	validate :ruby_question
 
-	scope :outdated, -> { where(version_updated: false || nil) }
+	scope :outdated, -> { where(version_updated: false) }
 	scope :up_to_date, -> { where(version_updated: true) }
 
 	def ruby_question

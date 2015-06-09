@@ -7,13 +7,10 @@ jQuery ->
 	rails = parseFloat($('#rails-version').html());
 
 	answer_background = (ruby, rails) ->
-		console.log("function")
-		console.log(ruby)
-		console.log(rails)
-		if(ruby > 1.7)
-			$('#answer-body.panel-body').css("background-color", "#c8e6c9")
+		if(ruby > 2.0 || rails > 4.0)
+			$('#answer-body-show.panel-body').css("background-color", "#c8e6c9")
 		else
-			$('#answer-body.panel-body').css("background-color", "#ffcdd2")
+			$('#answer-body-show.panel-body').css("background-color", "#ffcdd2")
 
 
 	answer_background(ruby, rails);

@@ -29,15 +29,10 @@ RSpec.describe "questions/index", type: :view do
   end
 
   it "renders a list of questions" do
+    allow(view).to receive_messages(:will_paginate => nil)
     render
-    assert_select "tr>td", :text => 1.to_s, :count => 2
-    assert_select "tr>td", :text => 2.to_s, :count => 2
-    assert_select "tr>td", :text => "MyText".to_s, :count => 2
-    assert_select "tr>td", :text => "Tags".to_s, :count => 2
-    assert_select "tr>td", :text => "MyText".to_s, :count => 2
-    assert_select "tr>td", :text => 3.to_s, :count => 2
-    assert_select "tr>td", :text => 4.to_s, :count => 2
-    assert_select "tr>td", :text => false.to_s, :count => 2
-    assert_select "tr>td", :text => "MyText".to_s, :count => 2
+    assert_select "div", :text => "MyText".to_s, :count => 2
+    assert_select "div>div>span", :text => "Tags".to_s, :count => 2
+    assert_select "h3", :text => "MyText".to_s, :count => 2
   end
 end
