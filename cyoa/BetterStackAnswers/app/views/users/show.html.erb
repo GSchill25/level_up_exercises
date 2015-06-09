@@ -5,7 +5,7 @@
 			  <%= image_tag @user.picture %>
 		  </div>
 		  <div class="col-lg-6">
-			  <h4><%= @user.name %></h4></br>
+			  <h4><i><%= @user.name %></i></h4></br>
 			  <div>
 			  	<span class="badge" id="ruby-version">
 			    <%= button_to "Ruby Version", ruby_update_path, method: :get, :class => "btn-sm btn-info" %>
@@ -17,9 +17,10 @@
 			    <%= GemVersion.rails %></span>
 			  </div>
 		  </div>
-		</div></br>
+		</div></br></br>
 		<div class="row">
-	    <%= pie_chart({ "Up to Date" => @user.questions.up_to_date.count, "Needs Updated" => @user.questions.outdated.count }, library: {backgroundColor: "#e3f2fd"}) %>
+			<h5 align="center">Q/A Version Status</h5>
+	    <%= pie_chart({ "Up to Date" => @user.questions.up_to_date.count, "Needs Updated" => @user.questions.outdated.count }, library: { backgroundColor: "#e3f2fd", chartArea: { width: "90%", height: "100%" }}) %>
     </div>
 	</div>
 
