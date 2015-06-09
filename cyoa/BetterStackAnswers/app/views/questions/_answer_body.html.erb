@@ -9,7 +9,7 @@
     <div id="collapse<%= question.id %>" class="panel-collapse collapse" aria-labelledby="heading<%= question.id %>">
       <div class="panel-body" id="answer-body-show">
         <% unless question.answer.nil? %>
-          <%= question.answer.body.html_safe %>
+          <%== question.answer.body %>
         <% end %>
       </div>
     </div>
