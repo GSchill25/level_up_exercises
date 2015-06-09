@@ -41,7 +41,7 @@
             <a id="edit_question" role="button" class="btn btn-primary" href="<%= edit_question_path(question) %>"><i class="fa fa-pencil-square-o fa-2x"></i></a>
           </div>
         </div>
-        <h3><%== question.title %></h3>
+        <h3><%== question.title.titleize %></h3>
         </br>
         <div class="well well-lg">
           <%== question.body %>

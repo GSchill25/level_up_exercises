@@ -33,6 +33,5 @@ RSpec.describe "questions/index", type: :view do
     render
     assert_select "div", :text => "MyText".to_s, :count => 2
     assert_select "div>div>span", :text => "Tags".to_s, :count => 2
-    assert_select "h3", :text => "MyText".to_s, :count => 2
   end
 end
