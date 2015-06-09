@@ -22,5 +22,13 @@ Feature: Manage Login
     And I should not see "Login With Stack Exchange"
     And I should see "Profile"
 
+  Scenario: Login and Then Logout
+    Given I have a Stack Exchange account
+    And I am on the questions page
+    When I follow "Login With Stack Exchange"
+    Then I should see "Logged In"
+    And I follow "Logout"
+    Then I should see "You have been logged out."
+
 
 

@@ -30,7 +30,7 @@ Feature: Manage Questions
     When I fill in "question_title" with "Did the title change?"
     And I fill in "question_answer_attributes_body" with "<p>yes</p>"
     And I press "Update"
-    Then I should see "Did the title change?"
+    Then I should see "Did The Title Change?"
     And I should see "Question was successfully updated"
     And I should not see "Sky Color"
 
@@ -50,5 +50,19 @@ Feature: Manage Questions
     And I fill in "question_body" with "<p>Yea so like is it this {}?</p>"
     And I press "Create Question"
     Then I should see "Question was successfully created"
-    And I should see "What's a hash?"
+    And I should see "What's A Hash?"
+
+  Scenario: Get more Questions from Stack Overflow
+    Given I am on the questions page
+    And I have a Stack Exchange account
+    And I follow "Login With Stack Exchange"
+    And I follow "Add Q and As"
+    Then I should see "Questions and Answers Added."
+
+  Scenario: Search by title for Questions
+    Given I am on the questions page
+    And I fill in "search" with "sky"
+    And I press "Search"
+    Then I should see "Sky Color"
+    And I should not see "Chef"
 
