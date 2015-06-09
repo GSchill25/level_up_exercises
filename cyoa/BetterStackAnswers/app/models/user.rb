@@ -17,5 +17,10 @@ class User < ActiveRecord::Base
     user
   end
 
-
+  def version_change
+    questions.all.each do |q|
+      q.version_updated = false
+      q.save
+    end
+  end
 end

@@ -10,10 +10,14 @@ class UsersController < ApplicationController
   def show
   end
 
-  def create
+  def rails_update
+    current_user.version_change if GemVersion.current_rails_version
+    redirect_to user_path(current_user), notice: "Rails Version Updated"
   end
 
-  def update
+  def ruby_update
+    current_user.version_change if GemVersion.current_ruby_version
+    redirect_to user_path(current_user), notice: "Ruby Version Updated"
   end
 
   private

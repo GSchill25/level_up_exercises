@@ -6,10 +6,14 @@ Rails.application.routes.draw do
   get   '/login', :to => 'sessions#new', :as => :login
   match '/auth/:provider/callback', :to => 'sessions#create', via: :get
   get 'auth/failure', :to => 'sessions#failure'
+  get '/logout', :to => 'sessions#destroy', :as => :logout
 
   get '/QandAs', :to => 'questions#questions_and_answers', :as => :stack_overflow
 
-  get '/logout', :to => 'sessions#destroy', :as => :logout
+  get '/ruby_update', :to => 'users#ruby_update', :as => :ruby_update
+  get '/rails_update', :to => 'users#rails_update', :as => :rails_update
+
+  
 
   
   # The priority is based upon order of creation: first created -> highest priority.
