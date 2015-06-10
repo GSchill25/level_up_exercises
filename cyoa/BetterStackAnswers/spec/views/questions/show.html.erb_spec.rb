@@ -3,16 +3,15 @@ require 'rails_helper'
 RSpec.describe "questions/show", type: :view do
   before(:each) do
     @question = assign(:question, Question.create!(
-      :question_id => 1,
-      :accepted_answer_id => 2,
-      :body => "MyText",
-      :tags => "Tags",
-      :title => "MyText",
-      :up_vote_count => 3,
-      :answer_count => 4,
-      :is_answered => false,
-      :link => "MyText"
-    ))
+      question_id: 1,
+      accepted_answer_id: 2,
+      body: "MyText",
+      tags: "Tags",
+      title: "MyText",
+      up_vote_count: 3,
+      answer_count: 4,
+      is_answered: false,
+      link: "MyText"))
   end
 
   it "renders attributes in <p>" do
