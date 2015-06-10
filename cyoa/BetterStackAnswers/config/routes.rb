@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get '/ruby_update', to: 'users#ruby_update', as: :ruby_update
   get '/rails_update', to: 'users#rails_update', as: :rails_update
 
-  root to: 'questions#index'
+  root to: 'statics#home'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

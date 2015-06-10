@@ -42,3 +42,12 @@
     margin-left: auto;
     margin-right: auto;
   }
+
+  #home_arrow {
+    padding-top: 150%;
+  }
+
+  .carousel-caption {
+    font-size: 175%;
+    color: black;
+  }
