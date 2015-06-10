@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get '/ruby_update', :to => 'users#ruby_update', :as => :ruby_update
   get '/rails_update', :to => 'users#rails_update', :as => :rails_update
 
+  root to: 'questions#index'
+
   
 
   
