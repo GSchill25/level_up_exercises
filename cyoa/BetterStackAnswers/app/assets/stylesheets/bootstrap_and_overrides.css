@@ -36,3 +36,9 @@
   #graph_header { 
     padding-left: 22%;
   }
+
+  i.fa.fa-check {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }

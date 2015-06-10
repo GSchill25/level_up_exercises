@@ -5,7 +5,7 @@
 			  <%= image_tag @user.picture %>
 		  </div>
 		  <div class="col-lg-6">
-			  <h4><i><%= @user.name %></i></h4></br>
+			  <h4><i><%= @user.name %>&nbsp;<i class="fa fa-user"></i></i></h4></br>
 			  <div>
 			  	<span class="badge" id="ruby-version">
 			    <%= button_to "Ruby Version", ruby_update_path, method: :get, :class => "btn-sm btn-info" %>
