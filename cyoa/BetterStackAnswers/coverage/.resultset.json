@@ -325,60 +325,11 @@
       ],
       "/Users/gschilling/Documents/LevelUpExercises/level_up_exercises/cyoa/BetterStackAnswers/app/controllers/answers_controller.rb": [
         1,
-        1,
-        null,
-        1,
-        0,
-        null,
-        null,
-        1,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        null,
-        null,
-        null,
-        null,
-        1,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        null,
-        null,
-        null,
-        null,
-        1,
-        0,
-        0,
-        0,
-        0,
-        null,
-        null,
-        null,
-        1,
-        null,
-        1,
-        0,
-        null,
-        null,
-        null,
-        1,
-        0,
         null,
         null
       ]
     },
-    "timestamp": 1433949086
+    "timestamp": 1433951159
   },
   "Cucumber Features": {
     "coverage": {
@@ -705,6 +656,6 @@
         null
       ]
     },
-    "timestamp": 1433949072
+    "timestamp": 1433951171
   }
 }
