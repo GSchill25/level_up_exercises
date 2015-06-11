@@ -1,40 +1,61 @@
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-  </ol>
-
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner" role="listbox">
-    <div class="item active">
-      <%= image_tag "home.png" %>
-      <div class="carousel-caption">
-        Review UPDATED Ruby Related Stack Overflow Q and As
-      </div>
+<div class="well well-lg">
+  <div class="row">
+    <div class="jumbotron col-lg-8">
+      <h3>Better Ruby Answers</h3>
+        <p id="description">Stack Overflow Questions of the same topic can only be asked once.
+         This means old questions and answers are often outdated and do not
+         get updated as ruby and rails versions change. This site is dedicated
+         to fixing that problem
+        </p>
+      <p><a class="btn btn-primary btn-sm" href="/auth/stackexchange" role="button">Login With Stack Overflow</a></p>
     </div>
-    <div class="item">
-      <%= image_tag "profile.png" %>
-      <div class="carousel-caption">
-        Manage Q and A versions from your profile 
-      </div>
-    </div>
-    <div class="item">
-      <%= image_tag "new.png" %>
-      <div class="carousel-caption">
-        Ask new Questions and get Answers
-      </div>
+    <div class="col-lg-3">
+      <%= image_tag "RubyOnRails.png", size: "300x225" %>
     </div>
   </div>
 
-  <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-    <span aria-hidden="true"><i id="home_arrow" class="fa fa-arrow-left"></i></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-    <span aria-hidden="true"><i id="home_arrow" class="fa fa-arrow-right"></i></span>
-    <span class="sr-only">Next</span>
-  </a>
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-2">
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <%= image_tag "home.png" %>
+          <div class="carousel-caption">
+            Review UPDATED Ruby Related Stack Overflow Q and As
+          </div>
+        </div>
+        <div class="item">
+          <%= image_tag "profile.png" %>
+          <div class="carousel-caption">
+            Manage Q and A versions from your profile 
+          </div>
+        </div>
+        <div class="item">
+          <%= image_tag "new.png" %>
+          <div class="carousel-caption">
+            Ask new Questions and get Answers
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        <span aria-hidden="true"><i id="home_arrow" class="fa fa-arrow-left"></i></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+        <span aria-hidden="true"><i id="home_arrow" class="fa fa-arrow-right"></i></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+</div>
 </div>
