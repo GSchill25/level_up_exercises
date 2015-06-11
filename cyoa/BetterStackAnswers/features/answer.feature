@@ -8,6 +8,8 @@ Feature: Manage Answers
 
   Scenario: Create New Question with Answer
     Given I am on the questions page
+    And I have a Stack Exchange account
+    And I follow "Login With Stack Exchange"
     When I follow "New Q"
     And I fill in "question_tags" with "ruby,rails"
     And I fill in "question_title" with "What's an array?"
