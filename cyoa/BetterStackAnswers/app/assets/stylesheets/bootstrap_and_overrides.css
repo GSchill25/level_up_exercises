@@ -21,6 +21,11 @@
     background-color: #e3f2fd;
   }
 
+  .jumbotron {
+    background-color: #e3f2fd;
+    padding-bottom: 0px;
+  }
+
   a.btn:visited { 
     color: #fff; 
   }
@@ -54,4 +59,8 @@
 
   #description {
     font-size: 80%;
+  }
+
+  .img-thumbnail {
+    padding-bottom: 20px;
   }
