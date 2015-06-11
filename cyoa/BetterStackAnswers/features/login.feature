@@ -8,7 +8,6 @@ Feature: Manage Login
     And I am on the questions page
     When I follow "Login With Stack Exchange"
     Then I should see "Invalid Stack Exchange Account"
-    And I should not see "Profile"
     And I should not see "Logged In"
     And I should not see "Logout"
 

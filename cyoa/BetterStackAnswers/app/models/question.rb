@@ -8,6 +8,7 @@ class Question < ActiveRecord::Base
   accepts_nested_attributes_for :answer
 
   validates_presence_of :body, :title
+  validates :title, uniqueness: { case_sensitive: false }
   validate :ruby_question
 
   scope :outdated, -> { where(version_updated: false) }

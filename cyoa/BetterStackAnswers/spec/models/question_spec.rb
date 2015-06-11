@@ -13,6 +13,8 @@ RSpec.describe Question, type: :model do
 
   it { should accept_nested_attributes_for(:answer) }
 
+  it { should validate_uniqueness_of(:title) }
+
   it "should have a valid factory" do
     expect(question).to be_valid
   end

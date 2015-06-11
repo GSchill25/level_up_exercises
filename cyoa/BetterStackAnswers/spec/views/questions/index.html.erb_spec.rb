@@ -18,7 +18,7 @@ RSpec.describe "questions/index", type: :view do
         accepted_answer_id: 2,
         body: "MyText",
         tags: "Tags",
-        title: "MyText",
+        title: "MyOtherText",
         up_vote_count: 3,
         answer_count: 4,
         is_answered: false,
